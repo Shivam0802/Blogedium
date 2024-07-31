@@ -146,7 +146,7 @@ function RegisterPage() {
                             alt="login"
                             className="hidden md:block w-full blur-[5px]"
                         />
-                        <div className="absolute top-0 md:left-[6rem] w-full h-full rounded-lg">
+                        <div className="absolute top-0 md:left-[6rem] h-full rounded-lg">
                             <div className="flex flex-col items-center justify-center md:justify-start mt-10 w-full md:w-[70%] h-full">
                                 <h1 className="text-[#DBCBBD] text-[1.7rem] md:text-[2.7rem] font-normal">
                                     Welcome to BlogSphere
@@ -231,7 +231,7 @@ function RegisterPage() {
                                         Email :
                                     </label>
                                     <div className="flex items-center bg-[#2F3645] bg-opacity-20 text-white text-[1rem] font-normal px-4 py-[0.02rem] rounded-lg ring-[0.02rem] ring-gray-200 hover:outline-none focus:outline-none">
-                                        <MdEmail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                                        <MdEmail className="mr-2 text-gray-500 w-6 h-6" />
                                         <hr className="w-0.5 h-6 bg-white bg-opacity-100 mr-4" />
                                         <input
                                             type="email"
