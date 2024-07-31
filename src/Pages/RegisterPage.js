@@ -146,8 +146,8 @@ function RegisterPage() {
                             alt="login"
                             className="hidden md:block w-full blur-[5px]"
                         />
-                        <div className="absolute top-0 md:left-[6rem] h-full rounded-lg">
-                            <div className="flex flex-col items-center justify-center md:justify-start mt-10 w-full md:w-[70%] h-full">
+                        <div className="absolute top-0 h-full rounded-lg">
+                            <div className="flex flex-col items-center justify-center md:justify-start mt-10 w-full h-full">
                                 <h1 className="text-[#DBCBBD] text-[1.7rem] md:text-[2.7rem] font-normal">
                                     Welcome to BlogSphere
                                 </h1>
