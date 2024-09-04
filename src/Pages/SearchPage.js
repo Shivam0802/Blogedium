@@ -122,9 +122,6 @@ const SearchPage = () => {
                                 <section className="block border-l border-gray-300 m-3">
                                     <div className="pl-3">
                                         <h3 className="text-gray-600 font-semibold text-md">{user.name}</h3>
-                                        <h3 className="bg-clip-text text-transparent bg-gradient-to-l from-[#005BC4] to-[#27272A] text-sm font-light">
-                                            {user.email}
-                                        </h3>
                                     </div>
                                     <div className="flex gap-3 pt-2 pl-3">
                                         <button className="flex items-center text-gray-600 text-[0.9rem] font-normal rounded h-fit hover:text-red-300">
