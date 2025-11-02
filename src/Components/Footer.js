@@ -8,107 +8,107 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <div className="bg-gray-800 bg-opacity-20 flex flex-col p-4">
-            <div className="flex flex-col md:flex-row items-center mb-2 gap-8">
-                <div className="flex flex-col w-full md:w-[65%] items-center md:items-start">
-                    <img src="/Assets/Logo.png" alt="Logo" className="w-[15rem] mx-2 mb-4 md:mb-0" />
-                    <h1 className="text-[2rem] text-white font-medium mx-6">
-                        Blogedium
-                    </h1>
-                    <p className="text-white text-[1rem] mx-6 text-center md:text-left">
-                        At Blogedium, explore diverse topics, share your thoughts, and be part of a vibrant community of bloggers.
-                    </p>
-                    <div className="flex flex-col gap-4 mx-6 mt-10 items-center md:items-start">
-                        <h1 className="text-[1.5rem] text-white font-medium">
-                            Follow Us:
+        <div className="bg-gradient-to-br from-slate-800 to-slate-900 text-white flex flex-col p-6 md:p-8">
+            <div className="max-w-7xl mx-auto w-full">
+                <div className="flex flex-col md:flex-row items-start mb-6 gap-8">
+                    <div className="flex flex-col w-full md:w-[35%]">
+                        <img src="/Assets/Logo.png" alt="Logo" className="w-[12rem] mb-4" />
+                        <h1 className="text-2xl font-bold mb-3 text-[#7C3AED]">
+                            Blogedium
                         </h1>
-                        <div className="flex flex-row gap-4">
-                            <Link to="#">
-                                <LuInstagram size={30} className="text-[#E1306C]" />
-                            </Link>
-                            <Link to="#">
-                                <LuTwitter size={30} className="text-[#1DA1F2]" />
-                            </Link>
-                            <Link to="#">
-                                <BsThreads size={30} className="text-[#F3F3F3]" />
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex flex-row items-center gap-4 w-full md:w-[50%]">
-                    <div className="flex flex-col items-center md:items-start w-full md:w-full">
-                        <h1 className="text-[1.5rem] text-[#FFBB5C] font-medium mx-6 text-center md:text-left">
-                            Quick Links
-                        </h1>
-                        <ul className="text-white text-[1rem] mx-6 text-center md:text-left">
-                            <Link to="/">
-                                <li className="my-2 hover:text-red-300 cursor-pointer">Home</li>
-                            </Link>
-                            <Link to="/blog">
-                                <li className="my-2 hover:text-red-300 cursor-pointer">Blogs</li>
-                            </Link>
-                            <Link to="/contact">
-                                <li className="my-2 hover:text-red-300 cursor-pointer">Contact Us</li>
-                            </Link>
-                            <Link to="#">
-                                <li className="my-2 hover:text-red-300 cursor-pointer">About Us</li>
-                            </Link>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col items-center md:items-start w-full md:w-full">
-                        <h1 className="text-[1.5rem] text-[#FFBB5C] font-medium mx-6 text-center md:text-left">
-                            Legal Stuff
-                        </h1>
-                        <ul className="text-white text-[1rem] mx-6 text-center md:text-left">
-                            <li className="my-2 hover:text-red-300 cursor-pointer">Privacy Policy</li>
-                            <li className="my-2 hover:text-red-300 cursor-pointer">Terms of Use</li>
-                            <li className="my-2 hover:text-red-300 cursor-pointer">Disclaimer</li>
-                            <li className="my-2 hover:text-red-300 cursor-pointer">FAQs</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="flex flex-col w-full md:w-[50%] items-center md:items-start">
-                    <div className="bg-gray-100 p-6 rounded-lg shadow-md mx-0 md:mx-10 my-4">
-                        <IoNewspaper className="text-[3rem] text-[#7077A1] mx-auto md:mx-0" />
-                        <h1 className="text-[1rem] md:text-[1.5rem] text-[#A0153E] font-medium text-center md:text-left">
-                            Subscribe to our Newsletter
-                        </h1>
-                        <p className="text-gray-600 text-[0.84rem] md:text-[0.9rem] text-center md:text-left" style={{ lineHeight: '1rem' }}>
-                            Stay updated with our latest blogs and news.
+                        <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                            At Blogedium, explore diverse topics, share your thoughts, and be part of a vibrant community of bloggers.
                         </p>
-                        <div className="flex flex-col md:flex-row gap-2 mt-4">
-                            <input type="email" placeholder="Enter your email" className="w-full bg-transparent border-b border-gray-300 focus:outline-none text-[1rem]" />
-                            <button className="bg-[#A0153E] text-white px-4 py-2 rounded-md hover:bg-red-200 hover:text-gray-900 mt-4 md:mt-0">
-                                Subscribe
-                            </button>
+                        <div className="flex flex-col gap-3">
+                            <h2 className="text-lg font-semibold">Follow Us</h2>
+                            <div className="flex flex-row gap-4">
+                                <Link to="#" className="hover:scale-110 transition-transform">
+                                    <LuInstagram size={28} className="text-[#E1306C]" />
+                                </Link>
+                                <Link to="#" className="hover:scale-110 transition-transform">
+                                    <LuTwitter size={28} className="text-[#1DA1F2]" />
+                                </Link>
+                                <Link to="#" className="hover:scale-110 transition-transform">
+                                    <BsThreads size={28} className="text-white" />
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                    <div className="flex flex-col gap-4 mx-0 md:mx-24">
-                        <div className="flex flex-row gap-2 mt-4">
-                            <MdEmail size={23} className="text-[#C5E898]" />
-                            <p className="text-white text-[1rem]">
-                                blogedium12@gmail.org
-                            </p>
+                    <div className="flex flex-row items-start gap-8 w-full md:w-[30%]">
+                        <div className="flex flex-col">
+                            <h2 className="text-lg font-semibold mb-4 text-[#10B981]">Quick Links</h2>
+                            <ul className="text-slate-300 text-sm space-y-2">
+                                <Link to="/">
+                                    <li className="hover:text-[#7C3AED] cursor-pointer transition-colors">Home</li>
+                                </Link>
+                                <Link to="/blogs">
+                                    <li className="hover:text-[#7C3AED] cursor-pointer transition-colors">Blogs</li>
+                                </Link>
+                                <Link to="/contact">
+                                    <li className="hover:text-[#7C3AED] cursor-pointer transition-colors">Contact Us</li>
+                                </Link>
+                                <Link to="#">
+                                    <li className="hover:text-[#7C3AED] cursor-pointer transition-colors">About Us</li>
+                                </Link>
+                            </ul>
                         </div>
-                        <div className="flex flex-row gap-2">
-                            <PiPhoneCallFill size={25} className="text-[#9BBEC8]" />
-                            <p className="text-white text-[1rem]">
-                                +91 1234567890
-                            </p>
+                        <div className="flex flex-col">
+                            <h2 className="text-lg font-semibold mb-4 text-[#10B981]">Legal</h2>
+                            <ul className="text-slate-300 text-sm space-y-2">
+                                <li className="hover:text-[#7C3AED] cursor-pointer transition-colors">Privacy Policy</li>
+                                <li className="hover:text-[#7C3AED] cursor-pointer transition-colors">Terms of Use</li>
+                                <li className="hover:text-[#7C3AED] cursor-pointer transition-colors">Disclaimer</li>
+                                <li className="hover:text-[#7C3AED] cursor-pointer transition-colors">FAQs</li>
+                            </ul>
                         </div>
-                        <div className="flex flex-row gap-2">
-                            <IoLocation size={25} className="text-[#F6B17A]" />
-                            <p className="text-white text-[1rem]">
-                                123, XYZ Street, ABC City, State, Pincode: 123456
+                    </div>
+                    <div className="flex flex-col w-full md:w-[35%]">
+                        <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg mb-6">
+                            <IoNewspaper className="text-4xl text-[#7C3AED] mb-3" />
+                            <h2 className="text-lg font-semibold mb-2 text-white">
+                                Subscribe to our Newsletter
+                            </h2>
+                            <p className="text-slate-300 text-sm mb-4">
+                                Stay updated with our latest blogs and news.
                             </p>
+                            <div className="flex flex-col sm:flex-row gap-2">
+                                <input 
+                                    type="email" 
+                                    placeholder="Enter your email" 
+                                    className="flex-1 bg-white/20 border border-slate-400 rounded-lg px-4 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-[#7C3AED]" 
+                                />
+                                <button className="bg-[#7C3AED] text-white px-4 py-2 rounded-lg hover:bg-[#6D28D9] transition-colors text-sm font-medium whitespace-nowrap">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-3">
+                            <div className="flex flex-row items-center gap-3">
+                                <MdEmail size={20} className="text-[#7C3AED]" />
+                                <p className="text-slate-300 text-sm">
+                                    blogedium12@gmail.org
+                                </p>
+                            </div>
+                            <div className="flex flex-row items-center gap-3">
+                                <PiPhoneCallFill size={20} className="text-[#7C3AED]" />
+                                <p className="text-slate-300 text-sm">
+                                    +91 1234567890
+                                </p>
+                            </div>
+                            <div className="flex flex-row items-start gap-3">
+                                <IoLocation size={20} className="text-[#7C3AED] mt-1" />
+                                <p className="text-slate-300 text-sm">
+                                    123, XYZ Street, ABC City, State, Pincode: 123456
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <hr className="border-slate-600 my-6" />
+                <p className="text-slate-400 text-center text-sm">
+                    &copy; 2024 Blogedium. All rights reserved
+                </p>
             </div>
-            <hr className="border-gray-400 mx-6" />
-            <p className="text-white text-center mt-4">
-                &copy; 2024 BlogSphere. All rights reserved
-            </p>
         </div>
     );
 }

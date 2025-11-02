@@ -2,13 +2,13 @@ import React from 'react';
 
 function Loader() {
     return (
-        <div class="flex flex-row justify-center gap-3">
-        <div class="w-4 h-2 rounded-full bg-[#536493] animate-bounce"></div>
-        <div class="w-4 h-2 rounded-full bg-[#B4E380] animate-bounce [animation-delay:-.1s]"></div>
-        <div class="w-4 h-2 rounded-full bg-[#EF5A6F] animate-bounce [animation-delay:-.2s]"></div>
-        <div class="w-4 h-2 rounded-full bg-[#FFCBCB] animate-bounce [animation-delay:-.3s]"></div>
-        <div class="w-4 h-2 rounded-full bg-[#468585] animate-bounce [animation-delay:-.5s]"></div>
-      </div>
+        <div className="flex flex-row justify-center items-center gap-2 py-8">
+            <div className="w-3 h-3 rounded-full bg-[#7C3AED] animate-bounce"></div>
+            <div className="w-3 h-3 rounded-full bg-[#7C3AED] animate-bounce [animation-delay:-.15s]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#7C3AED] animate-bounce [animation-delay:-.3s]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#10B981] animate-bounce [animation-delay:-.45s]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#10B981] animate-bounce [animation-delay:-.6s]"></div>
+        </div>
     );
 }
 

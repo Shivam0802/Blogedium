@@ -130,207 +130,141 @@ function RegisterPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-emerald-50 py-12 px-4"
         >
-            <div className="flex justify-center items-center h-screen">
-                <div className="flex flex-col md:flex-row items-center justify-around w-[100%] md:w-[80%] h-auto bg-[#2F3645] bg-opacity-5 rounded-lg backdrop-blur-sm p-4 m-4">
-                    <div className="relative mt-[32rem] md:mt-0 w-full md:w-[60%] h-full flex items-center mb-8 md:mb-0">
-                        {/* Image for mobile */}
-                        <img
-                            src="/Assets/Mobiles.jpg"
-                            alt="login"
-                            className="w-full md:hidden blur-[5px]"
-                        />
-                        {/* Image for desktop */}
-                        <img
-                            src="/Assets/Desktop.jpg"
-                            alt="login"
-                            className="hidden md:block w-full blur-[5px]"
-                        />
-                        <div className="absolute top-0 h-full rounded-lg">
-                            <div className="flex flex-col items-center justify-center md:justify-start mt-10 w-full h-full">
-                                <h1 className="text-[#DBCBBD] text-[1.7rem] md:text-[2.7rem] font-normal">
-                                    Welcome to BlogSphere
-                                </h1>
-                                <p className="text-white text-[1rem] md:text-[1.3rem] font-light mx-4 md:mx-10 text-justify">
-                                    Welcome to BlogSphere, your ultimate destination for sharing and discovering stories, insights, and experiences. Dive into a universe of creativity and let your voice be heard.
-                                </p>
-                                <div className="w-fit flex items-center mt-10 gap-2 md:gap-4">
-                                    <PiIntersectThreeBold className="text-[#F96D80] h-6 w-6" />
-                                    <hr className="w-[15rem] md:w-[30rem] h-0.5 bg-[#6C7B95] bg-opacity-40" />
-                                    <PiIntersectThreeBold className="text-[#F96D80] h-6 w-6" />
-                                </div>
-                                <div className="w-fit flex flex-col items-center mt-4">
-                                    <h2 className="text-white text-[1rem] md:text-[1.3rem] font-normal">
-                                        <strong className="text-green-300 font-medium mr-2 md:mr-4">
-                                            Or
-                                        </strong>
-                                        continue with
-                                    </h2>
-                                    <div className="w-full flex justify-center items-center mt-4">
-                                        <button
-                                            className="relative inline-flex w-full items-center justify-center rounded-md ring-1 ring-red-300 border border-gray-400 bg-white px-6 md:px-10 py-1 font-normal text-[1rem] md:text-[1.17rem] text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
-                                            type="button"
-                                        >
-                                            <span className="mr-2 inline-block">
-                                                <svg
-                                                    fill="currentColor"
-                                                    viewBox="0 0 24 24"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    className="h-6 w-6 text-rose-500"
-                                                >
-                                                    <path
-                                                        d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"
-                                                    ></path>
-                                                </svg>
-                                            </span>
-                                            Sign in with Google
-                                        </button>
-                                    </div>
-                                </div>
+            <div className="flex justify-center items-center">
+                <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div className="hidden md:flex w-full md:w-[50%] h-full bg-gradient-to-br from-purple-100 to-emerald-100 p-8 items-center justify-center">
+                        <div className="text-center">
+                            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-4">
+                                Join Blogedium
+                            </h1>
+                            <p className="text-base md:text-lg text-slate-600 mb-6">
+                                Start sharing your stories and connect with a vibrant community of bloggers.
+                            </p>
+                            <div className="flex items-center justify-center gap-2 mb-6">
+                                <PiIntersectThreeBold className="text-[#7C3AED] h-5 w-5" />
+                                <hr className="w-40 border-t border-slate-300" />
+                                <PiIntersectThreeBold className="text-[#7C3AED] h-5 w-5" />
                             </div>
+                            <button
+                                className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-6 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
+                                type="button"
+                            >
+                                <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
+                                </svg>
+                                Sign up with Google
+                            </button>
                         </div>
                     </div>
-                    <div className="flex flex-col w-full md:w-[40%] h-full justify-center items-center">
-                        <h1 className="text-white text-[1.7rem] md:text-[2.5rem] font-medium mt-2">
-                            Welcome Back ...
+                    <div className="flex flex-col w-full md:w-[50%] p-8 md:p-12">
+                        <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
+                            Create Account
                         </h1>
-                        <p className="text-white text-[1rem] md:text-[1.3rem] font-normal">
-                            Login to your account
+                        <p className="text-base text-slate-600 mb-6">
+                            Sign up to start blogging
                         </p>
-                        <hr className="w-[80%] h-0.5 bg-white bg-opacity-40 my-4" />
-                        <div className="w-[80%] md:w-[90%]">
+                        <hr className="w-full border-t border-slate-200 mb-6" />
+                        <div className="w-full">
                             <form onSubmit={handleAdd} className="flex flex-col gap-4">
-                                <div className="flex flex-col w-[100%] gap-1 mt-4">
-                                    <label
-                                        htmlFor="name"
-                                        className="text-white text-[1rem] font-normal ml-2"
-                                    >
-                                        Name :
+                                <div className="flex flex-col gap-2">
+                                    <label htmlFor="name" className="text-sm font-medium text-slate-700">
+                                        Name
                                     </label>
-                                    <div className="flex items-center bg-[#2F3645] bg-opacity-20 text-white text-[1rem] font-normal px-4 py-[0.02rem] rounded-lg ring-[0.02rem] ring-gray-200 hover:outline-none focus:outline-none">
-                                        <IoPerson className="text-[#F96D80] h-6 w-6 mr-2" />
-                                        <hr className="w-0.5 h-6 bg-white bg-opacity-100 mr-4" />
+                                        <div className="flex items-center bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 focus-within:border-[#7C3AED] focus-within:ring-2 focus-within:ring-purple-100 transition-all">
+                                        <IoPerson className="text-[#7C3AED] h-5 w-5 mr-3" />
                                         <input
                                             type="text"
                                             id="name"
                                             value={data.name}
                                             onChange={handleChange}
-                                            className="w-full h-[2.5rem] bg-transparent bg-opacity-20 text-white focus:outline-none"
-                                            placeholder="Name"
+                                            className="w-full bg-transparent text-slate-700 placeholder-slate-400 focus:outline-none"
+                                            placeholder="Enter your name"
                                         />
                                     </div>
-                                    {errors.name && (
-                                        <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-                                    )}
+                                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                                 </div>
-                                <div className="flex flex-col w-[100%] gap-1 mt-3">
-                                    <label
-                                        htmlFor="email"
-                                        className="text-white text-[1rem] font-normal ml-2"
-                                    >
-                                        Email :
+                                <div className="flex flex-col gap-2">
+                                    <label htmlFor="email" className="text-sm font-medium text-slate-700">
+                                        Email
                                     </label>
-                                    <div className="flex items-center bg-[#2F3645] bg-opacity-20 text-white text-[1rem] font-normal px-4 py-[0.02rem] rounded-lg ring-[0.02rem] ring-gray-200 hover:outline-none focus:outline-none">
-                                        <MdEmail className="mr-2 text-gray-500 w-6 h-6" />
-                                        <hr className="w-0.5 h-6 bg-white bg-opacity-100 mr-4" />
+                                        <div className="flex items-center bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 focus-within:border-[#7C3AED] focus-within:ring-2 focus-within:ring-purple-100 transition-all">
+                                        <MdEmail className="text-[#7C3AED] h-5 w-5 mr-3" />
                                         <input
                                             type="email"
                                             id="email"
                                             value={data.email}
                                             onChange={handleChange}
-                                            className="w-full h-[2.5rem] bg-transparent bg-opacity-20 text-white focus:outline-none"
-                                            placeholder="Email"
+                                            className="w-full bg-transparent text-slate-700 placeholder-slate-400 focus:outline-none"
+                                            placeholder="Enter your email"
                                         />
                                     </div>
-                                    {errors.email && (
-                                        <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-                                    )}
+                                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                                 </div>
-                                <div className="flex flex-col md:flex-row w-[100%] gap-6 md:gap-4 mt-3">
-                                    <div className="flex flex-col gap-1">
-                                        <label
-                                            htmlFor="password"
-                                            className="text-white text-[1rem] font-normal ml-2"
-                                        >
-                                            Password :
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="password" className="text-sm font-medium text-slate-700">
+                                            Password
                                         </label>
-                                        <div className="flex items-center bg-[#2F3645] bg-opacity-20 text-white text-[1rem] font-normal px-4 py-[0.02rem] rounded-lg ring-[0.02rem] ring-gray-200 hover:outline-none focus:outline-none">
-                                            <TbLockFilled className="text-[#9CDBA6] h-6 w-6 mr-2" />
-                                            <hr className="w-0.5 h-6 bg-white bg-opacity-100 mr-4" />
+                                        <div className="flex items-center bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 focus-within:border-[#7C3AED] focus-within:ring-2 focus-within:ring-purple-100 transition-all">
+                                            <TbLockFilled className="text-[#7C3AED] h-5 w-5 mr-3" />
                                             <input
                                                 type={showPassword ? "password" : "text"}
                                                 id="password"
                                                 value={data.password}
                                                 onChange={handleChange}
-                                                className="w-full h-[2.5rem] bg-transparent bg-opacity-20 text-white focus:outline-none"
+                                                className="w-full bg-transparent text-slate-700 placeholder-slate-400 focus:outline-none"
                                                 placeholder="Password"
                                             />
-                                            <div>
-                                                {showPassword ? <FaRegEye size={20} className="text-white" onClick={handlePassword} /> : <FaRegEyeSlash size={20} className="text-white" onClick={handlePassword} />}
-                                            </div>
+                                            <button type="button" onClick={handlePassword} className="ml-2">
+                                                {showPassword ? <FaRegEye size={18} className="text-slate-500" /> : <FaRegEyeSlash size={18} className="text-slate-500" />}
+                                            </button>
                                         </div>
-                                        {errors.password && (
-                                            <p className="text-red-500 text-sm mt-1">{errors.password}</p>
-                                        )}
+                                        {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
                                     </div>
-                                    <div className="flex flex-col gap-1">
-                                        <label
-                                            htmlFor="password"
-                                            className="text-white text-[1rem] font-normal ml-2"
-                                        >
-                                            Confirm Password :
+                                    <div className="flex flex-col gap-2">
+                                        <label htmlFor="confirmPassword" className="text-sm font-medium text-slate-700">
+                                            Confirm Password
                                         </label>
-                                        <div className="flex items-center bg-[#2F3645] bg-opacity-20 text-white text-[1rem] font-normal px-4 py-[0.02rem] rounded-lg ring-[0.02rem] ring-gray-200 hover:outline-none focus:outline-none">
-                                            <TbLockFilled className="text-[#9CDBA6] h-6 w-6 mr-2" />
-                                            <hr className="w-0.5 h-6 bg-white bg-opacity-100 mr-4" />
+                                        <div className="flex items-center bg-slate-50 border border-slate-300 rounded-lg px-4 py-2.5 focus-within:border-[#7C3AED] focus-within:ring-2 focus-within:ring-purple-100 transition-all">
+                                            <TbLockFilled className="text-[#7C3AED] h-5 w-5 mr-3" />
                                             <input
                                                 type={showConfirmPassword ? "password" : "text"}
                                                 id="confirmPassword"
                                                 value={data.confirmPassword}
                                                 onChange={handleChange}
-                                                className="w-full h-[2.5rem] bg-transparent bg-opacity-20 text-white focus:outline-none"
+                                                className="w-full bg-transparent text-slate-700 placeholder-slate-400 focus:outline-none"
                                                 placeholder="Confirm Password"
                                             />
-                                            <div>
-                                                {showConfirmPassword ? <FaRegEye size={20} className="text-white" onClick={handleConfirmPassword} /> : <FaRegEyeSlash size={20} className="text-white" onClick={handleConfirmPassword} />}
-                                            </div>
+                                            <button type="button" onClick={handleConfirmPassword} className="ml-2">
+                                                {showConfirmPassword ? <FaRegEye size={18} className="text-slate-500" /> : <FaRegEyeSlash size={18} className="text-slate-500" />}
+                                            </button>
                                         </div>
-                                        {errors.confirmPassword && (
-                                            <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
-                                        )}
+                                        {errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>}
                                     </div>
                                 </div>
-                                {errors.comparePassword && (
-                                    <p className="text-red-500 text-[1rem] ml-4">{errors.comparePassword}</p>
-                                )}
-                                <div className="flex flex-col justify-between w-[90%] mt-4">
-                                    <label className="flex items-center text-white text-[1rem] font-normal">
-                                        <input
-                                            type="checkbox"
-                                            className="h-[0.9rem] w-[0.9rem] mr-2"
-                                            checked
-                                        />
+                                {errors.comparePassword && <p className="text-red-500 text-sm">{errors.comparePassword}</p>}
+                                <div className="flex flex-col gap-2 mt-2">
+                                    <label className="flex items-center text-sm text-slate-600">
+                                        <input type="checkbox" className="h-4 w-4 mr-2 rounded border-slate-300 text-[#7C3AED] focus:ring-[#7C3AED]" defaultChecked />
                                         Terms and Conditions Apply
                                     </label>
-                                    <label className="flex items-center text-white text-[1rem] font-normal">
-                                        <input
-                                            type="checkbox"
-                                            className="h-[0.9rem] w-[0.9rem] mr-2"
-                                            checked
-                                        />
+                                    <label className="flex items-center text-sm text-slate-600">
+                                        <input type="checkbox" className="h-4 w-4 mr-2 rounded border-slate-300 text-[#7C3AED] focus:ring-[#7C3AED]" defaultChecked />
                                         Privacy Policy
                                     </label>
                                 </div>
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-[100%] h-[2.5rem] bg-[#FFE5B4] text-[1.2rem] md:text-[1.35rem] font-normal text-gray-700 rounded-lg mt-6 mb-4 cursor-pointer"
+                                    className="w-full h-11 bg-[#7C3AED] text-white text-base font-medium rounded-lg hover:bg-[#6D28D9] transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed mt-4"
                                 >
                                     {loading ? 'Loading...' : 'Register'}
                                 </button>
                             </form>
-                            <p className="text-white mt-4 text-center">
-                                Already have an account? <Link to="/login" className="text-blue-400">Log in</Link>
+                            <p className="text-sm text-slate-600 text-center mt-4">
+                                Already have an account? <Link to="/login" className="text-[#7C3AED] hover:text-[#6D28D9] font-medium">Log in</Link>
                             </p>
                         </div>
                     </div>

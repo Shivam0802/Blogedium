@@ -96,33 +96,33 @@ function Update({ closeModal }) {
     };
 
     return (
-        <div className='p-4'>
-            <h2 className="text-[2.26rem] font-medium text-[#A34343] mb-4 text-center">Update Profile</h2>
+        <div className='p-6'>
+            <h2 className="text-3xl font-semibold text-slate-800 mb-6 text-center">Update Profile</h2>
             <form onSubmit={updateUserProfile}>
-                <div className='bg-white p-4 rounded-md shadow-md mb-4'>
-                    <label className="block text-[1.05rem] ml-2 font-medium text-gray-600" htmlFor="profile_picture">Upload profile picture :</label>
+                <div className='bg-slate-900 p-6 rounded-lg shadow-lg mb-6 border border-slate-800'>
+                    <label className="block text-base ml-2 font-medium text-white mb-4" htmlFor="profile_picture">Upload profile picture</label>
                     <div className='flex flex-col md:flex-row justify-around gap-6 items-center'>
-                        <div className=" flex justify-center md:justify-start">
-                            <img src={profileImage} alt="Selected" className="h-40 w-40 md:h-56 md:w-56 object-cover rounded-md" />
+                        <div className="flex justify-center md:justify-start">
+                            <img src={profileImage} alt="Selected" className="h-40 w-40 md:h-56 md:w-56 object-cover rounded-lg border-2 border-slate-700" />
                         </div>
                         <div className="mb-4 flex flex-col items-center md:items-start">
-                            <div className='h-[12rem] w-[12rem] md:h-[12rem] md:w-[20rem] border rounded-md flex flex-col items-center justify-between p-2 gap-3 bg-blue-100 shadow-md'>
-                                <div className='flex-1 w-[100%] h-[100%] border-dashed border-2 border-blue-400 rounded-md flex items-center justify-center flex-col'>
-                                    <BsCloudUpload className='text-4xl text-black' />
-                                    <p className='text-center text-sm md:text-base'>{fileName}</p>
+                            <div className='h-[12rem] w-[12rem] md:h-[12rem] md:w-[20rem] border border-slate-700 rounded-lg flex flex-col items-center justify-between p-3 gap-3 bg-slate-800 shadow-md'>
+                                <div className='flex-1 w-[100%] h-[100%] border-dashed border-2 border-slate-600 rounded-lg flex items-center justify-center flex-col hover:border-[#7C3AED] transition-colors'>
+                                    <BsCloudUpload className='text-4xl text-[#7C3AED]' />
+                                    <p className='text-center text-sm md:text-base text-slate-300 mt-2'>{fileName}</p>
                                 </div>
                                 <input type='file' id='file' ref={fileInputRef} className='hidden' onChange={handleFileChange} />
-                                <div htmlfor="file" className='w-[100%] h-[40px] p-[8px] bg-blue-50 border-2 cursor-pointer flex items-center justify-center text-black border-none' onClick={handleFileUploadClick}>
-                                    choose file to upload
-                                </div>
+                                <button type="button" onClick={handleFileUploadClick} className='w-[100%] h-[40px] p-2 bg-[#7C3AED] hover:bg-[#6D28D9] border-2 cursor-pointer flex items-center justify-center text-white rounded-lg transition-colors font-medium'>
+                                    Choose file to upload
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="mb-4">
-                    <label className="block text-[1.05rem] ml-2 font-medium text-gray-600" htmlFor="bio">Bio :</label>
+                <div className="mb-6">
+                    <label className="block text-base ml-2 font-medium text-slate-700 mb-2" htmlFor="bio">Bio</label>
                     <textarea
-                        className="mt-1 p-2 w-full border rounded-md text-normal text-gray-600"
+                        className="mt-1 p-3 w-full border border-slate-300 rounded-lg bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED]"
                         rows="3"
                         name="bio"
                         value={data.bio}
@@ -131,55 +131,54 @@ function Update({ closeModal }) {
                         placeholder="Write something about yourself..."
                     ></textarea>
                 </div>
-                <hr className="mt-4" />
-                <div className='mb-4'>
+                <hr className="mt-4 border-slate-300" />
+                <div className='mb-6'>
                     <div className="mb-4">
-                        <label className="block text-[1.05rem] ml-2 font-medium text-gray-600">Social Media Links:</label>
-                        <div className="flex gap-4 mt-1">
+                        <label className="block text-base ml-2 font-medium text-slate-700 mb-3">Social Media Links</label>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-1">
                             <input
                                 type="url"
-                                className="p-2 w-full border rounded-md text-normal text-gray-600"
+                                className="p-3 w-full border border-slate-300 rounded-lg bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED]"
                                 placeholder="Instagram"
                                 value={socialLinks.instagram}
                                 onChange={(e) => setSocialLinks({ ...socialLinks, instagram: e.target.value })}
                             />
                             <input
                                 type="url"
-                                className="p-2 w-full border rounded-md text-normal text-gray-600"
+                                className="p-3 w-full border border-slate-300 rounded-lg bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED]"
                                 placeholder="Twitter"
                                 value={socialLinks.twitter}
                                 onChange={(e) => setSocialLinks({ ...socialLinks, twitter: e.target.value })}
                             />
                             <input
                                 type="url"
-                                className="p-2 w-full border rounded-md text-normal text-gray-600"
+                                className="p-3 w-full border border-slate-300 rounded-lg bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED]"
                                 placeholder="Discord"
                                 value={socialLinks.discord}
                                 onChange={(e) => setSocialLinks({ ...socialLinks, discord: e.target.value })}
                             />
                             <input
                                 type="url"
-                                className="p-2 w-full border rounded-md text-normal text-gray-600"
+                                className="p-3 w-full border border-slate-300 rounded-lg bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED]"
                                 placeholder="Twitch"
                                 value={socialLinks.twitch}
                                 onChange={(e) => setSocialLinks({ ...socialLinks, twitch: e.target.value })}
                             />
                             <input
                                 type="url"
-                                className="p-2 w-full border rounded-md text-normal text-gray-600"
+                                className="p-3 w-full border border-slate-300 rounded-lg bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#7C3AED] focus:border-[#7C3AED]"
                                 placeholder="Youtube"
                                 value={socialLinks.youtube}
                                 onChange={(e) => setSocialLinks({ ...socialLinks, youtube: e.target.value })}
                             />
                         </div>
                     </div>
-
                 </div>
                 <div className="flex flex-row items-center justify-center gap-4">
-                    <button onClick={closeModal} className="w-[25%] h-[2.5rem] bg-[#A0153E] text-white font-normal hover:bg-[#944E63] focus:outline-none">
+                    <button type="button" onClick={closeModal} className="w-[30%] h-11 bg-slate-200 text-slate-800 font-medium hover:bg-slate-300 focus:outline-none rounded-lg transition-colors">
                         Cancel
                     </button>
-                    <button type='submit' className="w-[25%] h-[2.5rem] bg-[#FDAF7B] text-white font-normal hover:bg-[#FCC45C] focus:outline-none">
+                    <button type='submit' className="w-[30%] h-11 bg-[#7C3AED] text-white font-medium hover:bg-[#6D28D9] focus:outline-none rounded-lg transition-colors shadow-sm">
                         Update
                     </button>
                 </div>

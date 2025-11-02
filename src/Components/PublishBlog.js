@@ -143,13 +143,13 @@ function PublishBlog() {
     const isSubmitDisabled = !data.title || !data.description || !data.category || !data.attachment || uploading;
 
     return (
-        <div className="flex justify-center items-center bg-[#1c1f1fcf] w-screen h-screen">
-            <div className="flex flex-col items-center justify-center bg-[#EEEEEE] w-[90rem] h-auto rounded-lg">
-                <h1 className="text-[2rem] md:text-[3rem] font-medium text-center">Publish Blog</h1>
-                <form className="flex flex-col w-[90%] md:w-[97%] gap-4 mt-16 mb-2 overflow-auto" onSubmit={handleSubmit}>
-                    <div className="flex flex-col">
-                        <label htmlFor="title" className="text-gray-700 text-[1rem] font-normal ml-1">
-                            Title :
+        <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-50 via-white to-emerald-50 py-12 px-4">
+            <div className="flex flex-col items-center justify-center bg-white w-full max-w-4xl rounded-2xl shadow-xl p-6 md:p-10">
+                <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">Publish Blog</h1>
+                <form className="flex flex-col w-full gap-6" onSubmit={handleSubmit}>
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="title" className="text-sm font-medium text-slate-700">
+                            Title
                         </label>
                         <input
                             type="text"
@@ -157,15 +157,21 @@ function PublishBlog() {
                             name="title"
                             value={data.title}
                             onChange={handleChange}
-                            placeholder="Title"
-                            className="w-[100%] h-[2rem] bg-transparent border-b border-gray-500 px-2 bg-opacity-20 text-black focus:outline-none"
+                            placeholder="Enter blog title"
+                            className="w-full h-12 px-4 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-100 focus:border-[#7C3AED] bg-slate-50 text-slate-700"
                         />
                     </div>
-                    <div className="flex flex-col">
-                        <label htmlFor="category" className="text-gray-700 text-[1rem] font-normal ml-1">
-                            Category :
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="category" className="text-sm font-medium text-slate-700">
+                            Category
                         </label>
-                        <select id="category" name="category" value={data.category} onChange={handleChange} className="w-[100%] h-[2rem] bg-transparent border-b border-gray-500 px-2 bg-opacity-20 text-black focus:outline-none">
+                        <select 
+                            id="category" 
+                            name="category" 
+                            value={data.category} 
+                            onChange={handleChange} 
+                            className="w-full h-12 px-4 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-100 focus:border-[#7C3AED] bg-slate-50 text-slate-700"
+                        >
                             <option value="">Select Category</option>
                             <option value="Technology">Technology</option>
                             <option value="Lifestyle">Lifestyle</option>
@@ -174,42 +180,47 @@ function PublishBlog() {
                             <option value="Nature">Nature</option>
                         </select>
                     </div>
-                    <div className="flex flex-col">
-                        <label htmlFor="description" className="text-gray-700 text-[1rem] font-normal ml-1">
-                            Description :
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="description" className="text-sm font-medium text-slate-700">
+                            Description
                         </label>
                         <textarea
                             id="description"
                             name="description"
                             value={data.description}
                             onChange={handleChange}
-                            className="w-full h-56 p-2 border border-gray-300 rounded-lg focus:outline-none"
+                            className="w-full h-56 p-4 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-100 focus:border-[#06B6D4] bg-slate-50 text-slate-700 resize-none"
                             placeholder="Write your content here..."
                         ></textarea>
                     </div>
-                    <div className="grid w-full md:w-[100%] items-center">
-                        <label className="text-gray-700 text-[1rem] font-normal ml-1">Picture</label>
+                    <div className="flex flex-col gap-2">
+                        <label className="text-sm font-medium text-slate-700">Picture</label>
                         <input
                             id="picture"
                             type="file"
                             ref={fileInputRef}
-                            className="flex h-10 w-full rounded-md border border-input bg-white text-sm text-gray-400 file:border-0 file:mr-4 file:bg-[#FFF2E1] file:px-2 file:h-10 file:text-gray-600 file:text-[1.12rem] file:font-normal"
+                            className="flex h-12 w-full rounded-lg border border-slate-300 bg-slate-50 text-sm text-slate-600 file:border-0 file:mr-4 file:bg-[#7C3AED] file:px-4 file:py-2 file:rounded-lg file:text-white file:font-medium file:cursor-pointer hover:file:bg-[#6D28D9] transition-colors"
                             onChange={handleFileChange}
                         />
                     </div>
                     {selectedImage && (
-                        <div className="mt-1 flex justify-center">
-                            <img src={selectedImage} alt="Selected" className="h-fit w-full md:h-[10rem] md:w-[15rem] object-cover rounded-md" />
+                        <div className="flex justify-center">
+                            <img src={selectedImage} alt="Selected" className="h-48 w-auto object-cover rounded-lg shadow-md" />
                         </div>
                     )}
                     <div className="flex flex-row items-center justify-center gap-4 mt-4">
                         <button
+                            type="button"
                             onClick={handleCancel}
-                            className="w-[25%] h-[2.5rem] bg-[#A0153E] text-white font-normal hover:bg-[#944E63] focus:outline-none"
+                            className="w-full md:w-[25%] h-11 bg-slate-200 text-slate-700 font-medium rounded-lg hover:bg-slate-300 transition-colors"
                         >
                             Cancel
                         </button>
-                        <button type="submit" disabled={isSubmitDisabled} className={`w-[25%] h-[2.5rem] bg-[#FDAF7B] text-white font-normal hover:bg-[#FCC45C] focus:outline-none ${isSubmitDisabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
+                        <button 
+                            type="submit" 
+                            disabled={isSubmitDisabled} 
+                            className={`w-full md:w-[25%] h-11 bg-[#7C3AED] text-white font-medium rounded-lg hover:bg-[#6D28D9] transition-colors shadow-sm ${isSubmitDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                        >
                             Publish
                         </button>
                     </div>

@@ -5,7 +5,8 @@
 
 
 body {
-  background-color: rgb(22, 20, 20);
+  background-color: #FFFFFF;
+  color: #1E293B;
 }
 
 .large-first-letter::first-letter {
@@ -15,6 +16,6 @@ body {
   line-height: 0.5;
   margin-right: 0.1em;
   margin-top: 0.1em;
-  color: #b7f5ff;
+  color: #7C3AED;
 }
 

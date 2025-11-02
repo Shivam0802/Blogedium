@@ -101,79 +101,74 @@ function BlogPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
         >
-            <div className="relative">
-                <img
-                    src="/Assets/background.jpg"
-                    alt="Background"
-                    className="w-full h-[45vh] md:h-[50vh] object-cover filter blur-[5px]"
-                />
+            <div className="relative bg-gradient-to-br from-purple-50 via-white to-emerald-50 min-h-[40vh] md:min-h-[45vh] flex items-center">
                 <div className="absolute top-0 left-0 w-full">
                     <Navbar />
                 </div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[20%] md:-translate-y-[40%] text-white text-center px-4">
-                    <h1 className="text-[2.5rem] md:text-[4rem] font-medium">Blogs</h1>
-                    <p className="text-[1rem] md:text-[1.5rem] font-medium">
+                <div className="w-full max-w-7xl mx-auto px-4 pt-24 pb-12 mt-16 text-center">
+                    <h1 className="text-[2.5rem] md:text-[4rem] font-bold text-slate-800 mb-4">Blogs</h1>
+                    <p className="text-[1.1rem] md:text-[1.3rem] font-normal text-slate-600 max-w-2xl mx-auto">
                         Explore diverse topics, share your thoughts, and be part of a vibrant community of bloggers.
                     </p>
                 </div>
             </div>
-            <div className="md:mx-10 my-20 px-4">
+            <div className="max-w-7xl mx-auto my-12 px-4">
                 <FilterComponent onFilterChange={handleFilterChange} categories={['Technology', 'Lifestyle', 'Nature', 'Travel', 'Sports']} />
                 {loading ? (
                     <Loader />
                 ) : (
                     <>
-                        <div className="flex flex-col md:flex-row gap-4 md:gap-4 justify-center items-center mb-4">
-                            <hr className="w-full md:w-[25%] border-[1px] border-[#A0153E] mb-2 md:mb-0" />
-                            <h1 className="text-yellow-100 text-[1.5rem] md:text-[2.5rem] font-normal">Top Blogs</h1>
-                            <hr className="w-full md:w-[25%] border-[1px] border-[#A0153E] mt-2 md:mt-0" />
+                        <div className="flex flex-row gap-4 md:gap-6 justify-center items-center mb-8 mt-12">
+                            <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
+                            <h1 className="text-[1.8rem] md:text-[2.5rem] font-bold text-slate-800">Top Blogs</h1>
+                            <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
                             {
                                 filterTopBlogs().length ? (
                                     filterTopBlogs().map(blog => (
                                         <BlogCard key={blog.id} blog={blog} />
                                     ))
                                 ) : (
-                                    <p className="text-white">No blogs found.</p>
+                                    <p className="text-slate-600 col-span-full text-center">No blogs found.</p>
                                 )
                             }
                         </div>
-                        <div className="md:mx-10 my-20 px-4">
-                            <div className="flex flex-col md:flex-row gap-4 md:gap-4 justify-center items-center mb-4">
-                                <hr className="w-full md:w-[25%] border-[1px] border-[#A0153E] mb-2 md:mb-0" />
-                                <h1 className="text-yellow-100 text-[1.5rem] md:text-[2.5rem] font-normal">Latest Blogs</h1>
-                                <hr className="w-full md:w-[25%] border-[1px] border-[#A0153E] mt-2 md:mt-0" />
+                        <div className="mb-12">
+                            <div className="flex flex-row gap-4 md:gap-6 justify-center items-center mb-8">
+                                <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
+                                <h1 className="text-[1.8rem] md:text-[2.5rem] font-bold text-slate-800">Latest Blogs</h1>
+                                <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-5">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                 {
                                     filterLatestBlogs().length ? (
                                         filterLatestBlogs().map(blog => (
                                             <BlogCard key={blog.id} blog={blog} />
                                         ))
                                     ) : (
-                                        <p className="text-white">No blogs found.</p>
+                                        <p className="text-slate-600 col-span-full text-center">No blogs found.</p>
                                     )
                                 }
                             </div>
                         </div>
                         {['Technology', 'Lifestyle', 'Nature', 'Travel', 'Sports'].map(category => (
-                            <div id={category.toLowerCase()} key={category} className="md:mx-10 my-20 px-4">
-                                <div className="flex flex-col md:flex-row gap-4 md:gap-4 justify-center items-center mb-4">
-                                    <hr className="w-full md:w-[25%] border-[1px] border-[#A0153E] mb-2 md:mb-0" />
-                                    <h1 className="text-yellow-100 text-[1.5rem] md:text-[2.5rem] font-normal">
+                            <div id={category.toLowerCase()} key={category} className="mb-12">
+                                <div className="flex flex-row gap-4 md:gap-6 justify-center items-center mb-8">
+                                    <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
+                                    <h1 className="text-[1.8rem] md:text-[2.5rem] font-bold text-slate-800">
                                         {`${category} Blogs`}
                                     </h1>
-                                    <hr className="w-full md:w-[25%] border-[1px] border-[#A0153E] mt-2 md:mt-0" />
+                                    <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
                                 </div>
-                                <div className="grid grid-cols-1 md:grid-cols-5">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                                     {
                                         filterCategoryBlogs(category).length ? (
                                             filterCategoryBlogs(category).map(blog => (
                                                 <BlogCard key={blog.id} blog={blog} />
                                             ))
                                         ) : (
-                                            <p className="text-white">No blogs found in this category.</p>
+                                            <p className="text-slate-600 col-span-full text-center">No blogs found in this category.</p>
                                         )
                                     }
                                 </div>
@@ -182,20 +177,20 @@ function BlogPage() {
                     </>
                 )}
             </div>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-1 md:gap-40 bg-[#211f1f] bg-opacity-40 md:mx-[30rem] px-4 md:py-4 md:px-0 mb-4 md:w-[50%]">
-                <h2 className="text-[1rem] md:text-[1.5rem] font-Light text-gray-200">Ready to share your thoughts?</h2>
-                <Link to="/publish" >
-                <button className="flex items-center px-2 md:px-4 bg-[#A0153E] text-gray-300 text-[1.12rem] text-white py-2 rounded-lg hover:bg-[#540a1f]">
-                    Publish a Blog
-                </button>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4 bg-gradient-to-r from-purple-50 to-emerald-50 max-w-4xl mx-auto px-6 py-6 mb-8 rounded-xl shadow-md">
+                <h2 className="text-base md:text-lg font-medium text-slate-800">Ready to share your thoughts?</h2>
+                <Link to="/publish">
+                    <button className="bg-[#7C3AED] text-white px-6 py-2.5 rounded-lg text-base font-medium hover:bg-[#6D28D9] transition-colors shadow-sm">
+                        Publish a Blog
+                    </button>
                 </Link>
             </div>
             <Footer />
-            <button onClick={openChatbot} className="bg-[#C73659] fixed bottom-16 right-0 rounded-full px-[0.64rem] py-[0.64rem] mr-6 mb-6">
-                <FaRobot size={27} className="text-[#F1F1F1]" />
+            <button onClick={openChatbot} className="bg-[#7C3AED] fixed bottom-16 right-4 rounded-full p-3 shadow-lg hover:bg-[#6D28D9] transition-colors z-40">
+                <FaRobot size={24} className="text-white" />
             </button>
-            <button onClick={goTop} className="bg-[#C73659] fixed bottom-0 right-0 rounded-full px-[0.64rem] py-[0.64rem] mr-6 mb-6">
-                <FaArrowUp size={25} className="text-[#F1F1F1]" />
+            <button onClick={goTop} className="bg-[#10B981] fixed bottom-4 right-4 rounded-full p-3 shadow-lg hover:bg-[#059669] transition-colors z-40">
+                <FaArrowUp size={20} className="text-white" />
             </button>
             <Modal isVisible={isChatbotOpen} className="blur-[10px]"> 
                 <Chatbot closeModal={closeChatbot} />

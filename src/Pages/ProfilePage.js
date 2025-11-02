@@ -103,28 +103,28 @@ function ProfilePage() {
             exit={{ opacity: 0 }}
         >
             <Navbar />
-            <div className="md:mx-10 mt-32 mb-10 px-4 bg-opacity-20">
-                <div className="flex flex-col md:flex-row gap-6 p-4">
-                    <div className="md:max-w-[24%] md:h-[80vh] mx-auto bg-[#1F2121] text-white rounded-lg overflow-hidden shadow-lg">
-                        <div className="flex items-center justify-center p-6 m-4 rounded-lg bg-[#373A40]">
-                            <div className="w-40 h-40 bg-gray-300 rounded-full overflow-hidden">
-                                {user && user.profileImage ? <img src={user.profileImage} alt="profile" className="w-full h-full" /> : <img src="/Assets/user.png" alt="profile" className="w-full h-full" />}
+            <div className="max-w-7xl mx-auto mt-28 mb-10 px-4">
+                <div className="flex flex-col md:flex-row gap-6">
+                    <div className="md:w-[25%] mx-auto bg-white text-slate-800 rounded-xl overflow-hidden shadow-lg border border-slate-200">
+                        <div className="flex items-center justify-center p-6 bg-gradient-to-br from-purple-50 to-emerald-50">
+                            <div className="w-32 h-32 bg-white rounded-full overflow-hidden border-4 border-[#7C3AED] shadow-md">
+                                {user && user.profileImage ? <img src={user.profileImage} alt="profile" className="w-full h-full object-cover" /> : <img src="/Assets/user.png" alt="profile" className="w-full h-full" />}
                             </div>
                         </div>
                         <div className="px-6 py-4">
-                            <div className="font-medium text-[2rem] text-pink-300">{user.name || 'User'}</div>
-                            <h4 className="text-gray-400 text-[0.7rem] mb-4">{user.email || 'abc@gmail.com'}</h4>
-                            <p className="text-gray-400 text-base text-justify">
-                                {user.bio || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'}
+                            <div className="font-bold text-2xl text-slate-800 mb-1">{user.name || 'User'}</div>
+                            <h4 className="text-slate-500 text-sm mb-4">{user.email || 'abc@gmail.com'}</h4>
+                            <p className="text-slate-600 text-sm text-justify mb-4">
+                                {user.bio || 'Share your thoughts and stories with the world...'}
                             </p>
                         </div>
                         <div className="px-6 pt-4 pb-2">
-                            <span className="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-400 mr-2 mb-2 cursor-pointer">33 Followers</span>
-                            <span className="inline-block bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-400 mr-2 mb-2 cursor-pointer">50 Following</span>
+                            <span className="inline-block bg-slate-100 rounded-full px-3 py-1 text-sm font-medium text-slate-700 mr-2 mb-2">33 Followers</span>
+                            <span className="inline-block bg-slate-100 rounded-full px-3 py-1 text-sm font-medium text-slate-700 mr-2 mb-2">50 Following</span>
                         </div>
-                        <div className="px-6 py-4 mb-8">
+                        <div className="px-6 py-4 mb-6">
                             <Link to="/publish">
-                                <button className="bg-[#F6E9B2] text-gray-800 font-semibold py-2 px-4 hover:bg-yellow-300 hover:text-gray-900">
+                                <button className="w-full bg-[#7C3AED] text-white font-medium py-2.5 px-4 rounded-lg hover:bg-[#6D28D9] transition-colors shadow-sm">
                                     Create Blog
                                 </button>
                             </Link>
@@ -177,34 +177,31 @@ function ProfilePage() {
                             </div>
                         </div>
                     </div>
-                    <div className="md:w-[90%] h-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 bg-[#1F2121] text-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="md:w-[75%] h-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {blogs.length === 0 ? (
-                            <div className="text-center text-gray-400">No blogs available</div>
+                            <div className="text-center text-slate-600 col-span-full py-12">No blogs available</div>
                         ) : (
                             isloading ? (
                                 <Loader />
                             ) : (
                                 blogs.map((blog) => (
-                                    <div key={blog.id} className="m-2 group bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-[#abd373] z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&_p]:delay-200 [&_p]:transition-all">
-                                        <img src={blog.attachment} alt="blog" className="w-full h-60 object-cover" />
-                                        <div className="flex flex-col gap-2 w-full p-4">
-                                            <p className="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
+                                    <div key={blog.id} className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 cursor-pointer">
+                                        <img src={blog.attachment} alt="blog" className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                                        <div className="p-4 flex flex-col gap-2">
+                                            <p className="font-semibold text-slate-800 text-lg group-hover:text-[#7C3AED] transition-colors line-clamp-2">
                                                 {blog.title}
                                             </p>
-                                            <p className="blueberry font-normal text-gray-200 group-hover:text-gray-700 text-[1rem]">
+                                            <p className="text-slate-600 text-sm line-clamp-2">
                                                 {blog.description.slice(0, 50)}...
                                             </p>
-                                            <div className="ordernow flex flex-row justify-between items-center w-full">
-                                                <p className="ordernow-text text-[#abd373] font-semibold group-hover:text-gray-800">
+                                            <div className="flex flex-row justify-between items-center w-full mt-2">
+                                                <p className="text-[#10B981] font-medium text-sm">
                                                     {blog.likeCount || '0'} Likes
                                                 </p>
-                                                <Link
-                                                    to={`/blog/${blog.id}`}
-                                                    state={{ blog }}
-                                                >
-                                                    <p className="btun4 lg:inline-flex items-center gap-3 group-hover:bg-white/10 shadow-[10px_10px_150px_#ff9f0d] cursor-pointer py-2 px-4 text-sm font-normal group-hover:text-gray-800 rounded-full butn">
+                                                <Link to={`/blog/${blog.id}`} state={{ blog }}>
+                                                    <button className="bg-[#7C3AED] text-white py-1.5 px-4 text-sm font-medium rounded-lg hover:bg-[#6D28D9] transition-colors">
                                                         Read More
-                                                    </p>
+                                                    </button>
                                                 </Link>
                                             </div>
                                         </div>
@@ -215,8 +212,8 @@ function ProfilePage() {
                 </div>
             </div>
             <Footer />
-            <button onClick={goTop} className="bg-[#C73659] fixed bottom-0 right-0 rounded-full px-[0.64rem] py-[0.64rem] mr-6 mb-6">
-                <FaArrowUp size={25} className="text-[#F1F1F1]" />
+            <button onClick={goTop} className="bg-[#10B981] fixed bottom-4 right-4 rounded-full p-3 shadow-lg hover:bg-[#059669] transition-colors z-40">
+                <FaArrowUp size={20} className="text-white" />
             </button>
         </motion.div>
     );

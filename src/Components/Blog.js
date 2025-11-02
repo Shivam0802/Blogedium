@@ -179,106 +179,102 @@ function Blog() {
 
     return (
         <>
-            <div className="flex flex-row items-center gap-2 md:gap-2 m-6 cursor-pointer" onClick={() => window.history.back()}>
-                <IoIosArrowDropleftCircle size={25} className="text-[#F5FCCD]" />
-                <h1 className="text-[#F5FCCD] font-medium text-[1.3rem]">Back</h1>
+            <div className="flex flex-row items-center gap-2 m-6 cursor-pointer" onClick={() => window.history.back()}>
+                <IoIosArrowDropleftCircle size={24} className="text-slate-600" />
+                <h1 className="text-slate-600 font-medium text-base">Back</h1>
             </div>
-            <div className="mx-4 md:mx-10 my-10 md:mb-20 px-4 bg-gray-800 bg-opacity-20">
-                <div className="flex flex-col md:flex-row gap-4 md:gap-10 mb-4">
-                    <div className="flex flex-col rounded-md p-4 md:p-8 mt-4 w-full md:w-[30%]">
-                        <div className="w-full md:w-[100%] flex ">
+            <div className="max-w-7xl mx-auto my-8 px-4">
+                <div className="flex flex-col md:flex-row gap-8">
+                    <div className="flex flex-col w-full md:w-[30%] bg-white rounded-xl shadow-lg p-6">
+                        <div className="w-full flex justify-center">
                             <img
-                                src={blogData.attachment || '/Assets/default-image.jpg'} // Provide a fallback image
+                                src={blogData.attachment || '/Assets/default-image.jpg'}
                                 alt="Blog Image"
-                                className="w-full h-fit md:w-[25rem] object-cover rounded-md mt-16"
+                                className="w-full object-cover rounded-xl shadow-md"
                                 loading='lazy'
                             />
                         </div>
-                        <div className="flex items-center justify-center gap-10 mt-10 ">
-                            <div className="flex items-center gap-1 mr-4 cursor-pointer" onClick={handleLike}>
+                        <div className="flex items-center justify-center gap-6 mt-6 pb-6 border-b border-slate-200">
+                            <button className="flex items-center gap-2 cursor-pointer hover:text-[#7C3AED] transition-colors" onClick={handleLike}>
                                 {isLiked ? (
-                                    <TiHeartFullOutline size={25} className="text-[#EF5A6F]" />
+                                    <TiHeartFullOutline size={24} className="text-[#10B981]" />
                                 ) : (
-                                    <TiHeartOutline size={25} className="text-[#EF5A6F]" />
+                                    <TiHeartOutline size={24} className="text-slate-400" />
                                 )}
-                                <span className="text-gray-300">Like</span>
-                            </div>
-                            <div className="flex items-center gap-1 cursor-pointer" onClick={() => handleShare('facebook')}>
-                                <FaShare size={20} className="text-[#E6B9A6]" />
-                                <span className="text-gray-300">Share</span>
-                            </div>
-                            <div className="flex items-center gap-1 cursor-pointer" onClick={handleBookmark}>
+                                <span className="text-slate-700 text-sm font-medium">{likeCount} Likes</span>
+                            </button>
+                            <button className="flex items-center gap-2 cursor-pointer hover:text-[#7C3AED] transition-colors" onClick={() => handleShare('facebook')}>
+                                <FaShare size={20} className="text-slate-400" />
+                                <span className="text-slate-700 text-sm font-medium">Share</span>
+                            </button>
+                            <button className="flex items-center gap-2 cursor-pointer hover:text-[#7C3AED] transition-colors" onClick={handleBookmark}>
                                 {isBookmarked ? (
-                                    <FaBookmark size={20} className="text-[#E6B9A6]" />
+                                    <FaBookmark size={20} className="text-[#7C3AED]" />
                                 ) : (
-                                    <FaRegBookmark size={20} className="text-[#E6B9A6]" />
+                                    <FaRegBookmark size={20} className="text-slate-400" />
                                 )}
-                                <span className="text-gray-300">Bookmark</span>
-                            </div>
+                                <span className="text-slate-700 text-sm font-medium">Save</span>
+                            </button>
                         </div>
-                        <div className="mt-8 bg-[#161515] p-4 ">
-                            <h2 className="text-2xl font-medium text-gray-100 ml-2">Comments</h2>
-                            <div className="flex flex-col gap-4 mt-4 max-h-[150px] overflow-y-auto hide-scrollbar">
-                                {comments.map((comment, index) => {
-                                    return (
-                                        <div key={index} className="bg-[#212326ba] p-4 rounded-md md:w-[100%]">
-                                            <div className='flex flex-col gap-2'>
-                                                <div className='flex flex-row items-center gap-3'>
-                                                    <div className='bg-gray-300 rounded-full p-1'>
-                                                        <BsPersonFill size={22} className='text-gray-800' />
+                        <div className="mt-6">
+                            <h2 className="text-xl font-bold text-slate-800 mb-4">Comments</h2>
+                            <div className="flex flex-col gap-3 mt-4 max-h-[300px] overflow-y-auto">
+                                {comments.length === 0 ? (
+                                    <p className="text-slate-500 text-sm text-center py-4">No comments yet</p>
+                                ) : (
+                                    comments.map((comment, index) => {
+                                        return (
+                                            <div key={index} className="bg-slate-50 p-3 rounded-lg">
+                                                <div className='flex flex-col gap-2'>
+                                                    <div className='flex flex-row items-center gap-3'>
+                                                        <div className='bg-[#7C3AED] rounded-full p-1.5'>
+                                                            <BsPersonFill size={18} className='text-white' />
+                                                        </div>
+                                                        <div className='flex flex-col'>
+                                                            <p className='text-slate-800 text-sm font-medium'>{comment.user}</p>
+                                                            <p className="text-slate-500 text-xs">
+                                                                {formatDate(comment.timestamp.toDate ? comment.timestamp.toDate() : new Date())}
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div className='flex flex-col'>
-                                                        <p className='text-gray-300 text-sm'>{comment.user}</p>
-                                                        <p className="text-gray-500 text-sm">
-                                                            {formatDate(comment.timestamp.toDate ? comment.timestamp.toDate() : new Date())}
-                                                        </p>
+                                                    <div className='flex flex-col mt-2'>
+                                                        <p className="text-slate-700 text-sm">{comment.text}</p>
                                                     </div>
-                                                </div>
-                                                <div className='flex flex-col'>
-                                                    <p className="text-gray-300">{comment.text}</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    );
-                                })}
+                                        );
+                                    })
+                                )}
                             </div>
-                            <div className="mt-8 p-2 md:w-[100%] bg-[#212326] ring-1 ring-gray-500 rounded-lg">
+                            <div className="mt-4 p-3 bg-slate-50 border border-slate-200 rounded-lg">
                                 <textarea
-                                    rows={2}
+                                    rows={3}
                                     value={newComment}
                                     onChange={(e) => setNewComment(e.target.value)}
                                     placeholder="Add a comment..."
-                                    className="w-full px-2 pt-2 bg-transparent text-gray-300 focus:outline-none "
+                                    className="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-100 focus:border-[#7C3AED] resize-none"
                                 />
-                                <div className='flex flex-row justify-between'>
-                                    <button className="group flex items-center justify-start w-9 h-9 bg-[#FDE49E] rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-40 hover:rounded-lg active:translate-x-1 active:translate-y-1">
-                                        <div className="flex items-center justify-center w-full transition-all duration-300 group-hover:justify-start group-hover:px-3">
-                                            <HiOutlineEmojiHappy size={30} className="text-gray-800" />
-                                        </div>
-                                        <div className="absolute right-5 transform translate-x-full opacity-0 text-gray-900 text-lg font-normal transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                                            Add Emoji
-                                        </div>
-                                    </button>
-                                    <button onClick={handleCommentSubmit} className="group flex items-center justify-start w-9 h-9 bg-[#A91D3A] rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-52 hover:rounded-lg active:translate-x-1 active:translate-y-1">
-                                        <div className="flex items-center justify-center w-full transition-all duration-300 group-hover:justify-start group-hover:px-3">
-                                            <IoArrowUpSharp size={20} className="text-white" />
-                                        </div>
-                                        <div className="absolute right-5 transform translate-x-full opacity-0 text-white text-lg font-normal transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                                            Submit Comment
-                                        </div>
+                                <div className='flex flex-row justify-end gap-2 mt-3'>
+                                    <button onClick={handleCommentSubmit} className="bg-[#7C3AED] text-white px-5 py-2 rounded-lg hover:bg-[#6D28D9] transition-colors text-sm font-medium flex items-center gap-2">
+                                        <IoArrowUpSharp size={18} />
+                                        Submit
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col rounded-md p-4 md:p-8 mt-4 w-full md:w-[70%]">
+                    <div className="flex flex-col w-full md:w-[70%] bg-white rounded-xl shadow-lg p-6 md:p-8">
                         <div className="flex flex-col w-full">
-                            <h1 className="text-[2rem] md:text-[3rem] text-[#F5FCCD] font-medium mt-4">{blogData.title || 'No Title'}</h1>
-                            <h3 className="text-[1.14rem] md:text-[1rem] text-gray-500 font-normal ml-2">{blogData.category || 'No Category'}</h3>
-                            <p className="text-[1rem] md:text-[1.2rem] text-gray-400 font-normal mb-2 ml-2">Date: {formattedDate || 'No Date'}</p>
-                            <p className="text-[#C7C1C1] first-letter:text-7xl first-letter:font-medium first-letter:text-yellow-200 first-letter:mr-3 first-letter:float-left text-light text-[1rem]">
-                                {blogData.description || 'No Description'}
-                            </p>
+                            <h1 className="text-3xl md:text-4xl text-slate-800 font-bold mb-2">{blogData.title || 'No Title'}</h1>
+                            <div className="flex items-center gap-4 mb-6">
+                                <span className="bg-[#7C3AED] text-white px-3 py-1 rounded-full text-sm font-medium">{blogData.category || 'No Category'}</span>
+                                <span className="text-slate-500 text-sm">Date: {formattedDate || 'No Date'}</span>
+                            </div>
+                            <div className="prose prose-slate max-w-none">
+                                <p className="text-slate-700 leading-relaxed text-base md:text-lg large-first-letter">
+                                    {blogData.description || 'No Description'}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

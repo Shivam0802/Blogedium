@@ -91,90 +91,87 @@ const SearchPage = () => {
 
     return (
         <>
-            <div className="flex flex-row items-center gap-2 mx-4 my-2 cursor-pointer md:gap-2 md:mx-6 md:my-4" onClick={() => window.history.back()}>
-                <IoIosArrowDropleftCircle size={25} className="text-[#F5FCCD]" />
-                <h1 className="text-[#F5FCCD] font-medium text-[1.3rem]">Back</h1>
+            <div className="flex flex-row items-center gap-2 mx-4 my-4 cursor-pointer" onClick={() => window.history.back()}>
+                <IoIosArrowDropleftCircle size={24} className="text-slate-600" />
+                <h1 className="text-slate-600 font-medium text-base">Back</h1>
             </div>
-            <div className="mx-4 mt-2 flex flex-col gap-4 bg-[#222831] bg-opacity-50 md:mx-28 md:mt-4">
-                <div className="mt-6 mx-2 flex flex-col gap-4 rounded-lg md:flex-row md:mx-4">
+            <div className="max-w-7xl mx-auto px-4 mt-4 flex flex-col gap-6">
+                <div className="flex flex-col gap-4 md:flex-row bg-white rounded-xl shadow-md p-4">
                     <input
                         type="text"
                         placeholder="Search Bloggers and blogs..."
                         value={searchInput}
                         onChange={handleInputChange}
-                        className="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:outline-none"
+                        className="flex-1 h-11 px-4 text-base text-slate-700 placeholder-slate-400 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-100 focus:border-[#7C3AED] bg-slate-50"
                     />
                     <button
                         onClick={handleSearch}
-                        className="bg-[#853C62] hover:bg-[#891652] text-white text-[1.2rem] font-normal py-2 px-4 rounded-full w-full md:w-[10%] h-fit"
+                        className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-base font-medium py-2.5 px-6 rounded-lg transition-colors shadow-sm"
                     >
                         Search
                     </button>
                 </div>
-                <div className="mt-10 mx-2 grid grid-cols-1 gap-4 rounded-lg md:grid-cols-2 lg:grid-cols-5 md:mx-4">
+                <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">
                     {allUsers.length ? (
                         allUsers.slice(0, 5).map((user, index) => (
-                            <div key={index} className="flex items-center p-3 bg-white rounded-md shadow-lg md:h-24 md:w-[17.4rem]">
-                                <section className="flex justify-center items-center w-14 rounded-full shadow-md bg-gradient-to-r from-[#F9C97C] to-[#A2E9C1] hover:from-[#C9A9E9] hover:to-[#7EE7FC] hover:cursor-pointer hover:scale-110 duration-300">
-                                    <img src={user.profileImage || "/Assets/user.png"} alt="" className="w-12 h-12 rounded-full" />
-                                </section>
-
-                                <section className="block border-l border-gray-300 m-3">
+                            <div key={index} className="flex items-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                                <img src={user.profileImage || "/Assets/user.png"} alt="" className="w-12 h-12 rounded-full border-2 border-[#7C3AED]" />
+                                <div className="block border-l border-slate-200 ml-4 flex-1">
                                     <div className="pl-3">
-                                        <h3 className="text-gray-600 font-semibold text-md">{user.name}</h3>
+                                        <h3 className="text-slate-800 font-semibold text-sm">{user.name}</h3>
                                     </div>
                                     <div className="flex gap-3 pt-2 pl-3">
-                                        <button className="flex items-center text-gray-600 text-[0.9rem] font-normal rounded h-fit hover:text-red-300">
+                                        <button className="flex items-center text-[#7C3AED] text-xs font-medium hover:text-[#6D28D9] transition-colors">
                                             Follow
-                                            <IoIosArrowRoundForward size={20} className="textgray-800" />
+                                            <IoIosArrowRoundForward size={16} className="ml-1" />
                                         </button>
                                     </div>
-                                </section>
+                                </div>
                             </div>
                         ))
                     ) : (
-                        <p className="text-white text-center">No users found</p>
+                        <p className="text-slate-600 text-center col-span-full">No users found</p>
                     )}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-2 mt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
                     {allBlogs.length ? (
                         allBlogs.slice(0, 5).map((blog, index) => (
-                            <div key={index} className="m-2 group px-4 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-[#abd373] z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0">
+                            <div key={index} className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 cursor-pointer">
                                 <img
                                     src={blog.attachment}
                                     alt=""
-                                    className="w-40 h-40 object-cover rounded-full shadow-lg"
+                                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                                 />
-                                <div className="flex flex-col gap-2 w-full">
-                                    <p className="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
-                                        {blog.title.slice(0, 15)}...
+                                <div className="p-4 flex flex-col gap-2">
+                                    <p className="font-semibold text-slate-800 text-lg group-hover:text-[#7C3AED] transition-colors line-clamp-2">
+                                        {blog.title.slice(0, 20)}...
                                     </p>
-                                    <p className="blueberry font-semibold text-gray-400 text-xs group-hover:text-gray-800">
+                                    <p className="text-slate-600 text-sm line-clamp-2">
                                         {blog.description.slice(0, 50)}...
                                     </p>
-                                    <div className="ordernow flex flex-row justify-between items-center w-full">
-                                        <p className="ordernow-text text-[#abd373] font-semibold group-hover:text-gray-800">
+                                    <div className="flex flex-row justify-between items-center w-full mt-2">
+                                        <p className="text-[#10B981] font-medium text-sm">
                                             {blog.likeCount || '0'} Likes
                                         </p>
                                         <Link to={`/blog/${blog.id}`} state={{ blog }}>
-                                            <p className="btun4 lg:inline-flex items-center gap-3 group-hover:bg-white/10 bg-[#abd373] shadow-[10px_10px_150px_#ff9f0d] cursor-pointer py-2 px-4 text-sm font-semibold rounded-full butn">
+                                            <button className="bg-[#7C3AED] text-white py-1.5 px-4 text-sm font-medium rounded-lg hover:bg-[#6D28D9] transition-colors">
                                                 Read More
-                                            </p>
+                                            </button>
                                         </Link>
                                     </div>
                                 </div>
                             </div>
                         ))
                     ) : (
-                        <p className="text-white text-center">No blogs found</p>
+                        <p className="text-slate-600 text-center col-span-full">No blogs found</p>
                     )}
                 </div>
             </div>
-            <button onClick={openChatbot} className="bg-[#C73659] fixed bottom-16 right-0 rounded-full px-[0.64rem] py-[0.64rem] mr-6 mb-6">
-                <FaRobot size={27} className="text-[#F1F1F1]" />
+            <button onClick={openChatbot} className="bg-[#7C3AED] fixed bottom-16 right-4 rounded-full p-3 shadow-lg hover:bg-[#6D28D9] transition-colors z-40">
+                <FaRobot size={24} className="text-white" />
             </button>
-            <button onClick={goTop} className="bg-[#C73659] fixed bottom-0 right-0 rounded-full px-[0.64rem] py-[0.64rem] mr-6 mb-6">
-                <FaArrowUp size={25} className="text-[#F1F1F1]" />
+            <button onClick={goTop} className="bg-[#10B981] fixed bottom-4 right-4 rounded-full p-3 shadow-lg hover:bg-[#059669] transition-colors z-40">
+                <FaArrowUp size={20} className="text-white" />
             </button>
             <Modal isVisible={isChatbotOpen} className="blur-[10px]">
                 <Chatbot closeModal={closeChatbot} />

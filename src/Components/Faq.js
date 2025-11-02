@@ -32,25 +32,25 @@ function Faq() {
         ];
 
         return (
-            <div className="space-y-4">
+            <div className="space-y-3">
                 {faqs.map((faq, index) => (
-                    <div key={index} className="border rounded-lg overflow-hidden mt-2">
+                    <div key={index} className="border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                         <button
-                            className={`w-full px-4 py-3 text-left ${openIndex === index ? 'bg-red-100' : 'bg-[#DDDDDD]'} hover:bg-[#C7C8CC] focus:outline-none focus:bg-red-50`}
+                            className={`w-full px-5 py-4 text-left ${openIndex === index ? 'bg-purple-50' : 'bg-white'} hover:bg-slate-50 focus:outline-none transition-colors`}
                             onClick={() => toggleFAQ(index)}
                         >
-                            <span className={`font-normal text-[1.12rem] ${openIndex === index ? 'text-red-500' : 'text-gray-800'}`}>
+                            <span className={`font-medium text-base ${openIndex === index ? 'text-[#7C3AED]' : 'text-slate-800'}`}>
                                 {index + 1}. {faq.question}
                             </span>
                             {openIndex === index ? (
-                                <MdOutlineKeyboardArrowUp className="inline-block float-right text-2xl" />
+                                <MdOutlineKeyboardArrowUp className="inline-block float-right text-xl text-[#7C3AED]" />
                             ) : (
-                                <MdOutlineKeyboardArrowDown className="inline-block float-right text-2xl" />
+                                <MdOutlineKeyboardArrowDown className="inline-block float-right text-xl text-slate-600" />
                             )}
                         </button>
                         {openIndex === index && (
-                            <div className="px-4 py-2 bg-gray-100">
-                                <p className="text-[1.05rem] font-normal">{faq.answer}</p>
+                            <div className="px-5 py-3 bg-slate-50 border-t border-slate-100">
+                                <p className="text-sm text-slate-700 leading-relaxed">{faq.answer}</p>
                             </div>
                         )}
                     </div>

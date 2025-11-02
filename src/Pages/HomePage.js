@@ -93,34 +93,31 @@ function HomePage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
         >
-            <div className="relative">
-                <img
-                    src="/Assets/background.jpg"
-                    alt="Background"
-                    className="w-full h-[70vh] md:h-[68vh] object-cover filter blur-[5px]"
-                />
+            <div className="relative bg-gradient-to-br from-purple-50 via-white to-emerald-50 min-h-[60vh] md:min-h-[65vh] flex items-center">
                 <div className="absolute top-0 left-0 w-full">
                     <Navbar />
                 </div>
-                <div className="absolute top-1/2 left-1/3 transform -translate-x-1/3 -translate-y-[40%] text-white">
-                    <h1 className="text-[2rem] md:text-[3.5rem] font-medium">
-                        Welcome to <br />
-                        <strong className="text-[#E0A75E] text-[3rem] md:text-[5rem] font-medium" style={{ lineHeight: '1.3rem' }}>Blogedium</strong>.
-                    </h1>
-                    <p className="text-[1rem] md:text-[1.5rem] font-light md:mr-80 mt-4 text-justify">
-                        Hello and welcome to Blogedium! 🖐🏼  <br />
-                        At Blogedium, we celebrate every story and every voice. Explore diverse topics, share your thoughts, and be part of a vibrant community of bloggers.
-                    </p>
-                    <div className="flex flex-row items-center gap-4 mt-4 px-4 md:px-0 mb-4">
-                        <Link to="/publish">
-                            <button className="flex items-center px-2 md:px-4 bg-[#A0153E] text-gray-300 text-[1.12rem] text-white py-2 mt-4 rounded-md hover:bg-red-200 hover:text-gray-900">
-                                Publish your Blog
+                <div className="w-full max-w-7xl mx-auto px-4 pt-24 pb-12 mt-16 md:mt-20">
+                    <div className="text-center md:text-left">
+                        <h1 className="text-[2.5rem] md:text-[4rem] font-bold text-slate-800 mb-4">
+                            Welcome to <br />
+                            <span className="text-[#7C3AED]">Blogedium</span>
+                        </h1>
+                        <p className="text-[1.1rem] md:text-[1.3rem] font-normal text-slate-600 max-w-3xl mb-8">
+                            Hello and welcome to Blogedium! 🖐🏼 <br />
+                            At Blogedium, we celebrate every story and every voice. Explore diverse topics, share your thoughts, and be part of a vibrant community of bloggers.
+                        </p>
+                        <div className="flex flex-col sm:flex-row items-center gap-4">
+                            <Link to="/publish">
+                                <button className="flex items-center px-6 py-3 bg-[#7C3AED] text-white text-base font-medium rounded-lg hover:bg-[#6D28D9] transition-colors shadow-md">
+                                    Publish your Blog
+                                </button>
+                            </Link>
+                            <button onClick={scrollToTrendingBlogs} className="flex items-center gap-2 text-[#7C3AED] text-base font-medium py-3 hover:text-[#6D28D9] transition-colors">
+                                Explore Blogs
+                                <HiMiniArrowLongRight className="inline-block" />
                             </button>
-                        </Link>
-                        <button onClick={scrollToTrendingBlogs} className="flex items-center gap-2 text-gray-300 text-[1.15rem] text-white py-2 mt-4 rounded-md hover:text-red-300">
-                            Explore Blogs
-                            <HiMiniArrowLongRight className="inline-block" />
-                        </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,52 +125,52 @@ function HomePage() {
                 ref={aboutRef}
                 initial={{ opacity: 0, y: 50 }}
                 animate={controls}
-                className="md:mx-10 my-20 px-4 bg-gray-800 bg-opacity-20"
+                className="max-w-7xl mx-auto my-16 px-4"
             >
-                <div className="flex flex-row gap-4 md:gap-10 justify-center items-center mb-4">
-                    <hr className="w-[25%] border-[1px] border-[#A0153E]" />
-                    <h1 className="text-[1.35rem] md:text-[4rem] font-normal text-[#D7E4C0]">About Us</h1>
-                    <hr className="w-[25%] border-[1px] border-[#A0153E]" />
+                <div className="flex flex-row gap-4 md:gap-6 justify-center items-center mb-8">
+                    <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
+                    <h1 className="text-[2rem] md:text-[3rem] font-bold text-slate-800">About Us</h1>
+                    <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
                 </div>
                 <About />
             </motion.div>
             <motion.div
-                ref={fileInputRef} // Attach the ref here
+                ref={fileInputRef}
                 initial={{ opacity: 0, y: 50 }}
                 animate={controls}
-                className="md:mx-10 my-20 px-4 bg-gray-800 bg-opacity-20"
+                className="max-w-7xl mx-auto my-16 px-4"
             >
-                <div className="flex flex-row gap-4 md:gap-10 justify-center items-center mb-4">
-                    <hr className="w-[25%] border-[1px] border-[#A0153E]" />
-                    <h1 className="text-[1.35rem] md:text-[4rem] font-normal text-[#D7E4C0]">Trending Blogs</h1>
-                    <hr className="w-[25%] border-[1px] border-[#A0153E]" />
+                <div className="flex flex-row gap-4 md:gap-6 justify-center items-center mb-8">
+                    <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
+                    <h1 className="text-[2rem] md:text-[3rem] font-bold text-slate-800">Trending Blogs</h1>
+                    <hr className="w-[20%] border-t-2 border-[#7C3AED]" />
                 </div>
                 {
                     loading ? <Loader /> : (
-                        <div className="grid grid-cols-1 md:grid-cols-5 gap-2 mt-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
                             {
                                 blogs.map((blog, index) => (
-                                    <div key={index} class="m-2 group px-4 py-5 bg-white/10 rounded-lg flex flex-col items-center justify-center gap-2 relative after:absolute after:h-full after:bg-[#abd373] z-20 shadow-lg after:-z-20 after:w-full after:inset-0 after:rounded-lg transition-all duration-300 hover:transition-all hover:duration-300 after:transition-all after:duration-500 after:hover:transition-all after:hover:duration-500 overflow-hidden cursor-pointer after:-translate-y-full after:hover:translate-y-0 [&amp;_p]:delay-200 [&amp;_p]:transition-all">
+                                    <div key={index} className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-100 cursor-pointer">
                                         <img
                                             src={blog.attachment}
                                             alt=""
-                                            class="w-40 h-40 object-cover rounded-full shadow-lg"
+                                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                                         />
-                                        <div className="flex flex-col gap-2 w-full">
-                                            <p class="cardtxt font-semibold text-gray-200 tracking-wider group-hover:text-gray-700 text-xl">
-                                                {blog.title.slice(0, 15)}...
+                                        <div className="p-4 flex flex-col gap-2">
+                                            <p className="font-semibold text-slate-800 text-lg group-hover:text-[#7C3AED] transition-colors">
+                                                {blog.title.slice(0, 20)}...
                                             </p>
-                                            <p class="blueberry font-semibold text-gray-400 text-xs group-hover:text-gray-800">
+                                            <p className="text-slate-600 text-sm line-clamp-2">
                                                 {blog.description.slice(0, 50)}...
                                             </p>
-                                            <div class="ordernow flex flex-row justify-between items-center w-full">
-                                                <p class="ordernow-text text-[#abd373] font-semibold group-hover:text-gray-800">
+                                            <div className="flex flex-row justify-between items-center w-full mt-2">
+                                                <p className="text-[#10B981] font-medium text-sm">
                                                     {blog.likeCount || '0'} Likes
                                                 </p>
                                                 <Link to={`/blog/${blog.id}`} state={{ blog }}>
-                                                    <p class="btun4 lg:inline-flex items-center gap-3 group-hover:bg-white/10 bg-[#abd373] shadow-[10px_10px_150px_#ff9f0d] cursor-pointer py-2 px-4 text-sm font-semibold rounded-full butn">
+                                                    <button className="bg-[#7C3AED] text-white py-1.5 px-4 text-sm font-medium rounded-lg hover:bg-[#6D28D9] transition-colors">
                                                         Read More
-                                                    </p>
+                                                    </button>
                                                 </Link>
                                             </div>
                                         </div>
@@ -182,9 +179,9 @@ function HomePage() {
                             }
                         </div>
                     )}
-                <div className="flex justify-end mr-4">
+                <div className="flex justify-center mt-8">
                     <Link to="/blogs">
-                        <button className="flex items-center gap-2 text-gray-300 text-[1.15rem] text-white py-2 mt-4 rounded-md hover:text-red-300">
+                        <button className="flex items-center gap-2 text-[#7C3AED] text-base font-medium py-2 hover:text-[#6D28D9] transition-colors">
                             View All Blogs
                             <HiMiniArrowLongRight className="inline-block" />
                         </button>
@@ -195,33 +192,32 @@ function HomePage() {
                 ref={faqRef}
                 initial={{ opacity: 0, y: 50 }}
                 animate={controls}
-                className="md:mx-10 my-20 px-4 bg-gray-800 bg-opacity-20"
+                className="max-w-7xl mx-auto my-16 px-4"
             >
-                <div className="max-w-full mx-auto p-6 flex flex-col md:flex-row">
-                    <div className="md:w-[40%] mt-10">
-                        <img src="/Assets/Icons/faq.png" alt="Illustration" className="w-16 h-16" />
-                        <h2 className="text-[2rem] font-light mb-4 text-gray-200">Frequently Asked
-                            <br />
-                            <strong className="text-[3rem] text-[#A0153E] font-normal" style={{ lineHeight: '1.2rem' }}>
-                                Questions
-                            </strong>
-                        </h2>
-                        <p className="w-full mb-8 text-white text-light">
-                            <span className="text-[#EEF5FF] text-[1.3rem] text-normal">Have questions?</span>
-                            <br /> We have answers! Check out our Frequently Asked Questions to know more about Blogedium.
-                        </p>
-                    </div>
-                    <div className="md:w-[60%] mt-2">
-                        <FAQ />
+                <div className="bg-gradient-to-br from-purple-50 to-emerald-50 rounded-2xl p-8 md:p-12">
+                    <div className="max-w-full mx-auto flex flex-col md:flex-row gap-8">
+                        <div className="md:w-[40%]">
+                            <h2 className="text-[2rem] md:text-[3rem] font-bold mb-4 text-slate-800">Frequently Asked
+                                <br />
+                                <span className="text-[#7C3AED]">Questions</span>
+                            </h2>
+                            <p className="w-full mb-8 text-slate-600 text-lg">
+                                <span className="text-[#10B981] font-semibold">Have questions?</span>
+                                <br /> We have answers! Check out our Frequently Asked Questions to know more about Blogedium.
+                            </p>
+                        </div>
+                        <div className="md:w-[60%]">
+                            <FAQ />
+                        </div>
                     </div>
                 </div>
             </motion.div>
             <Footer />
-            <button onClick={openChatbot} className="bg-[#C73659] fixed bottom-16 right-0 rounded-full px-[0.64rem] py-[0.64rem] mr-6 mb-6">
-                <FaRobot size={27} className="text-[#F1F1F1]" />
+            <button onClick={openChatbot} className="bg-[#7C3AED] fixed bottom-16 right-4 rounded-full p-3 shadow-lg hover:bg-[#6D28D9] transition-colors z-40">
+                <FaRobot size={24} className="text-white" />
             </button>
-            <button onClick={goTop} className="bg-[#C73659] fixed bottom-0 right-0 rounded-full px-[0.64rem] py-[0.64rem] mr-6 mb-6">
-                <FaArrowUp size={25} className="text-[#F1F1F1]" />
+            <button onClick={goTop} className="bg-[#10B981] fixed bottom-4 right-4 rounded-full p-3 shadow-lg hover:bg-[#059669] transition-colors z-40">
+                <FaArrowUp size={20} className="text-white" />
             </button>
             <Modal isVisible={isChatbotOpen} className="blur-[10px]">
                 <Chatbot closeModal={closeChatbot} />

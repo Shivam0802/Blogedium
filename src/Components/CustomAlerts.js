@@ -25,28 +25,29 @@ const CustomAlert = ({ message, onClose, type }) => {
     switch (type) {
       case 'error':
         return {
-          classes: 'ring-2 ring-red-800 border-red-400 text-red-600 bg-gray-100',
-          icon: <MdErrorOutline size={27} className="text-red-400" />
+          classes: 'ring-2 ring-red-800 border-red-600 text-white bg-slate-900',
+          icon: <MdErrorOutline size={24} className="text-red-400" />
         };
       case 'success':
         return {
-          classes: 'ring-2 ring-green-800 border-green-400 text-green-600 bg-gray-100',
-          icon: <AiOutlineCheckCircle size={27} className="text-green-400" />
+          classes: 'ring-2 ring-emerald-800 border-emerald-600 text-white bg-slate-900',
+          icon: <AiOutlineCheckCircle size={24} className="text-emerald-400" />
         };
       case 'warning':
         return {
-          classes: 'ring-2 ring-yellow-800 border-yellow-400 text-yellow-600 bg-gray-100',
-          icon: <RiAlertLine size={27} className="text-yellow-400" />
+          classes: 'ring-2 ring-amber-800 border-amber-600 text-white bg-slate-900',
+          icon: <RiAlertLine size={24} className="text-amber-400" />
         };
       case 'info':
+      case 'information':
         return {
-          classes: 'ring-2 ring-blue-800 border-blue-400 text-blue-600 bg-gray-100',
-          icon: <IoInformationCircleOutline size={27} className="text-blue-400" />
+          classes: 'ring-2 ring-purple-800 border-purple-600 text-white bg-slate-900',
+          icon: <IoInformationCircleOutline size={24} className="text-purple-400" />
         };
       default:
         return {
-          classes: 'ring-2 ring-blue-800 border-blue-400 text-blue-600 bg-gray-100',
-          icon: <IoInformationCircleOutline size={27} className="text-blue-400" />
+          classes: 'ring-2 ring-purple-800 border-purple-600 text-white bg-slate-900',
+          icon: <IoInformationCircleOutline size={24} className="text-purple-400" />
         };
     }
   };
@@ -55,20 +56,20 @@ const CustomAlert = ({ message, onClose, type }) => {
 
   return (
     <div
-      className={`fixed inset-0 top-12 left-[26rem] z-50 transition-opacity duration-300 ${showAlert ? 'opacity-100' : 'opacity-0'}`}
+      className={`fixed inset-0 top-12 right-4 md:right-auto md:left-auto z-50 transition-opacity duration-300 ${showAlert ? 'opacity-100' : 'opacity-0'}`}
       aria-live="assertive"
     >
-      <div className={`flex justify-between p-[0.7rem] items-center shadow-lg rounded-full max-w-[50rem] w-full mx-4 md:mx-0 relative transform transition-transform duration-300 ${showAlert ? 'translate-y-0' : '-translate-y-12'} ${classes}`}>
-        <div className="flex items-center gap-2">
+      <div className={`flex justify-between p-4 items-center shadow-xl rounded-lg max-w-md w-full mx-4 md:mx-0 relative transform transition-transform duration-300 ${showAlert ? 'translate-y-0' : '-translate-y-12'} ${classes}`}>
+        <div className="flex items-center gap-3">
           {icon}
-          <p className="text-gray-700">{message}</p>
+          <p className="text-white text-sm font-medium">{message}</p>
         </div>
-        <div className="flex justify-end ">
+        <div className="flex justify-end">
           <button
             onClick={handleClose}
-            className={`rounded-md focus:outline-none ${type === 'error' ? 'text-red-400 hover:text-red-800' : type === 'success' ? 'text-green-400 hover:text-green-800' : type === 'warning' ? 'text-yellow-400 hover:text-yellow-800' : 'text-blue-400 hover:text-blue-800'}`}
+            className={`rounded-md focus:outline-none hover:opacity-70 transition-opacity ${type === 'error' ? 'text-red-400' : type === 'success' ? 'text-emerald-400' : type === 'warning' ? 'text-amber-400' : 'text-purple-400'}`}
           >
-            <GiCancel size={22} />
+            <GiCancel size={20} />
           </button>
         </div>
       </div>
